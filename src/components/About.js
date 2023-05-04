@@ -11,11 +11,11 @@ export default function About() {
       </Text>
       <Text variant="primary-3">
         Interested seeing things in design perspective, especially for web
-        development. Design and designing is something that got myself "hyped"
-        the most. Through design, someone can make a timeless art on his/her
-        media. Website design is for an example. Keeping up with recent design
-        trend and platforms around the globe. Besides design, i'm an active
-        learner through the internet.
+        development. Design and designing is something that got myself hyped the
+        most. Through design, someone can make a timeless art on his/her media.
+        Website design is for an example. Keeping up with recent design trend
+        and platforms around the globe. Besides design, i'm an active learner
+        through the internet.
       </Text>
 
       <Box display="flex" alignItems="center" gap="10px">
@@ -25,7 +25,7 @@ export default function About() {
           </Link>
         </Box>
         <Box>
-          <Link href="https://www.linkedin.com/in/samrmdhn/" target="_blank">
+          <Link href="https://www.linkedin.com/in/samrmdhn" target="_blank">
             <Image src="/linked.png" width="20" height="20" alt="Linked" />
           </Link>
         </Box>
