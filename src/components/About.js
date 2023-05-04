@@ -9,8 +9,8 @@ export default function About() {
         About
       </Text>
 
-      <Text variant="primary-3">
-        Interested seeing things in design perspective,
+      <Text variant="primary-3" style={{ marginBottom: "10px" }}>
+        Interested seeing things in design perspective.
       </Text>
 
       <Box display="flex" alignItems="center" gap="10px">
