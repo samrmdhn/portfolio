@@ -1,6 +1,5 @@
 import { Box } from "@mui/material";import Text from "./Text";
-import LinkedInIcon from "@mui/icons-material/LinkedIn";
-import InstagramIcon from "@mui/icons-material/Instagram";
+
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,14 +10,12 @@ export default function About() {
         About
       </Text>
       <Text variant="primary-3">
-        <p>
-          Interested seeing things in design perspective, especially for web
-          development. Design and designing is something that got myself "hyped"
-          the most. Through design, someone can make a timeless art on his/her
-          media. Website design is for an example. Keeping up with recent design
-          trend and platforms around the globe. Besides design, i'm an active
-          learner through the internet.
-        </p>
+        Interested seeing things in design perspective, especially for web
+        development. Design and designing is something that got myself "hyped"
+        the most. Through design, someone can make a timeless art on his/her
+        media. Website design is for an example. Keeping up with recent design
+        trend and platforms around the globe. Besides design, i'm an active
+        learner through the internet.
       </Text>
 
       <Box display="flex" alignItems="center" gap="10px">
