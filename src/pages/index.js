@@ -1,11 +1,61 @@
-import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
+import About from "@/components/About";
+import Education from "@/components/Education";
+import Experience from "@/components/Experience";
+import Projects from "@/components/Projects";
+import Technologiess from "@/components/Technologiess";
+import Text from "@/components/Text";
 
-const inter = Inter({ subsets: ['latin'] })
+import { Box, Grid, Tooltip } from "@mui/material";
+import Head from "next/head";
+import Image from "next/image";
+import { useState } from "react";
+
+const MENU = [
+  {
+    name: "Projects",
+    component: <Projects />,
+  },
+  {
+    name: "Technologies",
+    component: <Technologiess />,
+  },
+  {
+    name: "Experience",
+    component: <Experience />,
+  },
+  {
+    name: "Education",
+    component: <Education />,
+  },
+  {
+    name: "About",
+    component: <About />,
+  },
+];
 
 export default function Home() {
+  const [value, setValue] = useState("one");
+
+  const [menu, setMenu] = useState(MENU);
+
+  const [selectedMenu, setSelectedMenu] = useState(MENU[0]);
+
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
+
+  const handleMenu = (name) => {
+    if (selectedMenu.name === name) {
+      setSelectedMenu(MENU[0]);
+    } else {
+      const selected = MENU.find((m) => {
+        return m.name === name;
+      });
+
+      setSelectedMenu(selected);
+    }
+  };
+
   return (
     <>
       <Head>
@@ -14,101 +64,111 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <main className={`${styles.main} ${inter.className}`}>
-        <div className={styles.description}>
-          <p>
-            Get started by editing&nbsp;
-            <code className={styles.code}>src/pages/index.js</code>
-          </p>
-          <div>
-            <a
-              href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-              target="_blank"
-              rel="noopener noreferrer"
+      <main>
+        <section>
+          <Box sx={{ display: "flex", justifyContent: "center" }}>
+            <Box
+              display="flex"
+              flexDirection="column"
+              padding={2}
+              sx={{
+                width: "450px",
+                display: "flex",
+                justifyContent: "center",
+              }}
             >
-              By{' '}
-              <Image
-                src="/vercel.svg"
-                alt="Vercel Logo"
-                className={styles.vercelLogo}
-                width={100}
-                height={24}
-                priority
+              <img
+                src="/sam3.jpg"
+                height="80"
+                width="80"
+                style={{
+                  objectFit: "cover",
+                  borderRadius: "50%",
+                  marginBottom: "15px",
+                }}
               />
-            </a>
-          </div>
-        </div>
+              <div
+                style={{
+                  marginBottom: "5px",
+                  fontSize: "24px",
+                  fontWeight: "bolder",
+                }}
+              >
+                Syams Syair Ramadhan
+              </div>
 
-        <div className={styles.center}>
-          <Image
-            className={styles.logo}
-            src="/next.svg"
-            alt="Next.js Logo"
-            width={180}
-            height={37}
-            priority
-          />
-        </div>
+              <div
+                style={{
+                  display: "flex",
+                  gap: "5px",
+                  fontSize: "14px",
+                  marginBottom: "5px",
+                  color: "grey",
+                }}
+              >
+                <Text variant="secondary-2">23</Text>
+                <div> | </div>
+                <Text variant="secondary-2">Web Developer</Text>
+                <div> | </div>
+                <Text variant="secondary-2">Bandung</Text>
+              </div>
 
-        <div className={styles.grid}>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Docs <span>-&gt;</span>
-            </h2>
-            <p>
-              Find in-depth information about Next.js features and&nbsp;API.
-            </p>
-          </a>
+              <p style={{ marginBottom: "15px" }}>
+                Interested in designing and developing web applications that are
+                both visually stunning and fully functional
+              </p>
 
-          <a
-            href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Learn <span>-&gt;</span>
-            </h2>
-            <p>
-              Learn about Next.js in an interactive course with&nbsp;quizzes!
-            </p>
-          </a>
+              {/* */}
 
-          <a
-            href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Templates <span>-&gt;</span>
-            </h2>
-            <p>
-              Discover and deploy boilerplate example Next.js&nbsp;projects.
-            </p>
-          </a>
+              <Grid container sx={{ marginBottom: "15px" }}>
+                <Grid item xs={6}>
+                  <div style={{ fontWeight: "bolder" }}>Projects</div>
+                  <div>5+ </div>
+                </Grid>
+                <Grid item xs={6}>
+                  <div style={{ fontWeight: "bolder" }}>Experience</div>
+                  <div>1 year</div>
+                </Grid>
+              </Grid>
 
-          <a
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-            className={styles.card}
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <h2>
-              Deploy <span>-&gt;</span>
-            </h2>
-            <p>
-              Instantly deploy your Next.js site to a shareable URL
-              with&nbsp;Vercel.
-            </p>
-          </a>
-        </div>
+              <div
+                style={{
+                  display: "flex",
+                  flexWrap: "wrap",
+                  alignItems: "center",
+                  gap: "5px",
+                }}
+              >
+                {menu.map((m, index) => {
+                  return (
+                    <>
+                      <div
+                        style={{
+                          backgroundColor:
+                            selectedMenu.name === m.name ? "black" : "white",
+                          padding: "5px 10px",
+                          borderRadius: "20px",
+                          cursor: "pointer",
+                          border: "1px solid #e8e8e8",
+                          color:
+                            selectedMenu.name === m.name ? "white" : "black",
+                        }}
+                        onClick={() => handleMenu(m.name)}
+                      >
+                        {m.name}
+                      </div>
+                    </>
+                  );
+                })}
+              </div>
+
+              {/* */}
+
+              <div style={{ marginTop: "10px" }}>{selectedMenu.component}</div>
+            </Box>
+          </Box>
+        </section>
       </main>
     </>
-  )
+  );
 }
